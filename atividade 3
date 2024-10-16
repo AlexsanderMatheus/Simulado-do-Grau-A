@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    int meses;
+    double populacaoInicial;
+
+    // Lê a população inicial e o número de meses
+    printf("Digite a populacao inicial da colmeia: ");
+    scanf("%lf", &populacaoInicial);
+    printf("Digite o numero de meses: ");
+    scanf("%d", &meses);
+
+    double populacaoAtual = populacaoInicial;
+
+    printf("\nPopulacao ao final de cada mes:\n");
+    printf("Mes 0: %.2f\n", populacaoAtual);
+
+    for (int mes = 1; mes <= meses; mes++) {
+        // A população dobra
+        populacaoAtual *= 2;
+
+        // 3% da população migra
+        populacaoAtual -= populacaoAtual * 0.03;
+
+        printf("Mes %d: %.2f\n", mes, populacaoAtual);
+    }
+
+    return 0;
+}

@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int numeroSorteado, palpite;
+    
+    // Inicializa o gerador de números aleatórios
+    srand(time(NULL));
+    numeroSorteado = (rand() % 100) + 1; // Sorteia um número entre 1 e 100
+
+    printf("Tente adivinhar o numero sorteado entre 1 e 100:\n");
+
+    do {
+        printf("Digite seu palpite: ");
+        scanf("%d", &palpite);
+
+        if (palpite > numeroSorteado) {
+            printf("Muito alto! Tente novamente.\n");
+        } else if (palpite < numeroSorteado) {
+            printf("Muito baixo! Tente novamente.\n");
+        } else {
+            printf("Parabens! Voce adivinhou o numero: %d\n", numeroSorteado);
+        }
+    } while (palpite != numeroSorteado);
+
+    return 0;
+}

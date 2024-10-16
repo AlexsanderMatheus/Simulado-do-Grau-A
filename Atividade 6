@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    int tempo[7];
+    int i;
+    int total = 0;
+    int maxTempo = 0;
+    int diaMax = 0;
+
+    // Lê o tempo de exercício para cada um dos 7 dias
+    for (i = 0; i < 7; i++) {
+        printf("Digite o tempo de exercicio realizado no dia %d (em minutos): ", i + 1);
+        scanf("%d", &tempo[i]);
+        total += tempo[i]; // Acumula o tempo total
+
+        // Verifica se o tempo do dia atual é maior que o máximo registrado
+        if (tempo[i] > maxTempo) {
+            maxTempo = tempo[i];
+            diaMax = i + 1; // Armazena o dia (1 a 7)
+        }
+    }
+
+    // Calcula a média de tempo diário
+    float media = total / 7.0;
+
+    // Exibe os resultados
+    printf("\nTotal de tempo exercitado na semana: %d minutos\n", total);
+    printf("Media de tempo diario: %.2f minutos\n", media);
+    printf("Dia com maior tempo de exercicio: Dia %d (Tempo: %d minutos)\n", diaMax, maxTempo);
+
+    return 0;
+}

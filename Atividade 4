@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int i;
+    float umidade[5];
+    int irrigacaoAtivada = 0;
+
+    // Leitura da umidade dos sensores
+    for (i = 0; i < 5; i++) {
+        printf("Digite a umidade do solo do sensor %d (em porcentagem): ", i + 1);
+        scanf("%f", &umidade[i]);
+    }
+
+    // Verifica a umidade e ativa a irrigação se necessário
+    for (i = 0; i < 5; i++) {
+        if (umidade[i] < 30.0) {
+            printf("Irrigacao ativada pelo sensor %d (umidade: %.2f%%)\n", i + 1, umidade[i]);
+            irrigacaoAtivada = 1;
+        }
+    }
+
+    if (!irrigacaoAtivada) {
+        printf("A umidade do solo esta adequada. Nenhuma irrigacao ativada.\n");
+    }
+
+    return 0;
+}

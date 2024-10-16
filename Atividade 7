@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char caracteres[10];
+
+    // Leitura de 10 caracteres
+    printf("Digite 10 caracteres:\n");
+    for (int i = 0; i < 10; i++) {
+        printf("Caracter %d: ", i + 1);
+        scanf(" %c", &caracteres[i]);  // O espaço antes de %c ignora espaços em branco
+    }
+
+    // Verificação de cada caractere
+    for (int i = 0; i < 10; i++) {
+        if (isalpha(caracteres[i])) {
+            printf("Caracter '%c' é uma letra.\n", caracteres[i]);
+        } else if (isdigit(caracteres[i])) {
+            printf("Caracter '%c' é um número.\n", caracteres[i]);
+        } else {
+            printf("Caracter '%c' é um símbolo especial.\n", caracteres[i]);
+        }
+    }
+
+    return 0;
+}

@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main() {
+    int numero;
+    int total = 0;
+    int positivos = 0;
+    int negativos = 0;
+    int divisiveisPor2 = 0;
+    int divisiveisPor5 = 0;
+
+    printf("Digite numeros inteiros (digite 0 para sair):\n");
+
+    while (1) {
+        scanf("%d", &numero);
+        
+        if (numero == 0) {
+            break;
+        }
+
+        total++;
+
+        if (numero > 0) {
+            positivos++;
+        } else if (numero < 0) {
+            negativos++;
+        }
+
+        if (numero % 2 == 0) {
+            divisiveisPor2++;
+        }
+
+        if (numero % 5 == 0) {
+            divisiveisPor5++;
+        }
+    }
+
+    if (total > 0) {
+        printf("Porcentagem de numeros positivos: %.2f%%\n", (positivos * 100.0) / total);
+        printf("Porcentagem de numeros negativos: %.2f%%\n", (negativos * 100.0) / total);
+        printf("Porcentagem de numeros divisiveis por 2: %.2f%%\n", (divisiveisPor2 * 100.0) / total);
+        printf("Porcentagem de numeros divisiveis por 5: %.2f%%\n", (divisiveisPor5 * 100.0) / total);
+    } else {
+        printf("Nenhum numero foi digitado.\n");
+    }
+
+    return 0;
+}
